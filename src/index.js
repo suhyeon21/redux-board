@@ -1,14 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+
+import App from "./App";
+import board_reducer from "./App_reducer";
+
+let store = createStore(
+  board_reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), //??
+);
+
+//forest71.tistory.com/184?category=683254 [SW 개발이 좋은 사람]
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </Provider>,
+  document.getElementById("root"),
 );
 
 // If you want to start measuring performance in your app, pass a function
